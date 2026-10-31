@@ -1,0 +1,41 @@
+benchmark,configuration,median_seconds,best_seconds,speedup_vs_interpreter,traces,loop_body_ops,jit_share_percent,output_matches
+b1_sum_loop,Interpreter,0.278832,0.278703,1,0,-1,0.0,yes
+b1_sum_loop,JIT IR-executor -O2,0.498293,0.497221,0.56,1,3,100.0,yes
+b1_sum_loop,JIT native -O0,0.0155799,0.0154669,17.9,1,3,100.0,yes
+b1_sum_loop,JIT native -O1,0.0157275,0.0155169,17.7,1,3,100.0,yes
+b1_sum_loop,JIT native -O2,0.0156596,0.0154907,17.8,1,3,100.0,yes
+b2_loop_invariant,Interpreter,0.643906,0.643505,1,0,-1,0.0,yes
+b2_loop_invariant,JIT IR-executor -O2,0.336738,0.33438,1.91,1,3,100.0,yes
+b2_loop_invariant,JIT native -O0,0.0204075,0.0203463,31.6,1,8,100.0,yes
+b2_loop_invariant,JIT native -O1,0.0197953,0.0196396,32.5,1,8,100.0,yes
+b2_loop_invariant,JIT native -O2,0.010476,0.010374,61.5,1,3,100.0,yes
+b3_nested_loops,Interpreter,0.124423,0.124243,1,0,-1,0.0,yes
+b3_nested_loops,JIT IR-executor -O2,0.182326,0.18177,0.682,1,4,99.9,yes
+b3_nested_loops,JIT native -O0,0.00746983,0.00741542,16.7,1,4,99.9,yes
+b3_nested_loops,JIT native -O1,0.00742938,0.00738492,16.7,1,4,99.9,yes
+b3_nested_loops,JIT native -O2,0.00744475,0.00743283,16.7,1,4,99.9,yes
+b4_fibonacci_mod,Interpreter,0.434454,0.433753,1,0,-1,0.0,yes
+b4_fibonacci_mod,JIT IR-executor -O2,0.628444,0.624801,0.691,1,4,100.0,yes
+b4_fibonacci_mod,JIT native -O0,0.041666,0.0415936,10.4,1,4,100.0,yes
+b4_fibonacci_mod,JIT native -O1,0.041788,0.0415918,10.4,1,4,100.0,yes
+b4_fibonacci_mod,JIT native -O2,0.041828,0.0417082,10.4,1,4,100.0,yes
+b5_polynomial,Interpreter,0.593271,0.592718,1,0,-1,0.0,yes
+b5_polynomial,JIT IR-executor -O2,0.578667,0.57822,1.03,1,9,100.0,yes
+b5_polynomial,JIT native -O0,0.0227282,0.0224701,26.1,1,9,100.0,yes
+b5_polynomial,JIT native -O1,0.0218152,0.0217068,27.2,1,9,100.0,yes
+b5_polynomial,JIT native -O2,0.021828,0.0216998,27.2,1,9,100.0,yes
+b6_bounds_checked,Interpreter,0.539825,0.539292,1,0,-1,0.0,yes
+b6_bounds_checked,JIT IR-executor -O2,0.405233,0.395721,1.33,1,5,100.0,yes
+b6_bounds_checked,JIT native -O0,0.0258851,0.025755,20.9,1,7,100.0,yes
+b6_bounds_checked,JIT native -O1,0.0215373,0.021332,25.1,1,5,100.0,yes
+b6_bounds_checked,JIT native -O2,0.0215402,0.0214387,25.1,1,5,100.0,yes
+b7_branchy,Interpreter,0.217105,0.216309,1,0,-1,0.0,yes
+b7_branchy,JIT IR-executor -O2,0.336436,0.335915,0.645,1,5,25.0,yes
+b7_branchy,JIT native -O0,0.121127,0.120932,1.79,1,5,40.0,yes
+b7_branchy,JIT native -O1,0.120995,0.120921,1.79,1,5,40.0,yes
+b7_branchy,JIT native -O2,0.120677,0.120186,1.8,1,5,25.0,yes
+b8_div_not_jitable,Interpreter,0.0730555,0.0729238,1,0,-1,0.0,yes
+b8_div_not_jitable,JIT IR-executor -O2,0.077347,0.0771739,0.945,0,-1,0.0,yes
+b8_div_not_jitable,JIT native -O0,0.0773449,0.0772668,0.945,0,-1,0.0,yes
+b8_div_not_jitable,JIT native -O1,0.0773241,0.0772727,0.945,0,-1,0.0,yes
+b8_div_not_jitable,JIT native -O2,0.077387,0.0770666,0.944,0,-1,0.0,yes

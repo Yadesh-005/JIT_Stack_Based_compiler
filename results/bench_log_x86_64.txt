@@ -1,0 +1,65 @@
+Benchmark: 8 programs x 5 configurations, median of 7 runs
+host: x86-64, compiler: 13.3.0, native backend: native x86-64 backend (self-test passed)
+
+b1_sum_loop
+  Interpreter                   0.2812 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.3732 s     0.75x   traces=1 loopOps=3 jit=100.0%
+  JIT native -O0                0.0108 s    26.13x   traces=1 loopOps=3 jit=100.0%
+  JIT native -O1                0.0128 s    22.01x   traces=1 loopOps=3 jit=100.0%
+  JIT native -O2                0.0109 s    25.73x   traces=1 loopOps=3 jit=100.0%
+b2_loop_invariant
+  Interpreter                   0.5329 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.2550 s     2.09x   traces=1 loopOps=3 jit=100.0%
+  JIT native -O0                0.0211 s    25.30x   traces=1 loopOps=8 jit=100.0%
+  JIT native -O1                0.0212 s    25.19x   traces=1 loopOps=8 jit=100.0%
+  JIT native -O2                0.0071 s    74.89x   traces=1 loopOps=3 jit=100.0%
+b3_nested_loops
+  Interpreter                   0.1048 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.1309 s     0.80x   traces=1 loopOps=4 jit=99.9%
+  JIT native -O0                0.0059 s    17.80x   traces=1 loopOps=4 jit=99.9%
+  JIT native -O1                0.0050 s    20.83x   traces=1 loopOps=4 jit=99.9%
+  JIT native -O2                0.0064 s    16.48x   traces=1 loopOps=4 jit=99.9%
+b4_fibonacci_mod
+  Interpreter                   0.3498 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.5768 s     0.61x   traces=1 loopOps=4 jit=100.0%
+  JIT native -O0                0.0186 s    18.86x   traces=1 loopOps=4 jit=100.0%
+  JIT native -O1                0.0241 s    14.51x   traces=1 loopOps=4 jit=100.0%
+  JIT native -O2                0.0258 s    13.55x   traces=1 loopOps=4 jit=100.0%
+b5_polynomial
+  Interpreter                   0.5222 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.5098 s     1.02x   traces=1 loopOps=9 jit=100.0%
+  JIT native -O0                0.0235 s    22.24x   traces=1 loopOps=9 jit=100.0%
+  JIT native -O1                0.0224 s    23.32x   traces=1 loopOps=9 jit=100.0%
+  JIT native -O2                0.0208 s    25.15x   traces=1 loopOps=9 jit=100.0%
+b6_bounds_checked
+  Interpreter                   0.5206 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.3209 s     1.62x   traces=1 loopOps=5 jit=100.0%
+  JIT native -O0                0.0181 s    28.82x   traces=1 loopOps=7 jit=100.0%
+  JIT native -O1                0.0138 s    37.60x   traces=1 loopOps=5 jit=100.0%
+  JIT native -O2                0.0136 s    38.28x   traces=1 loopOps=5 jit=100.0%
+b7_branchy
+  Interpreter                   0.1898 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.2636 s     0.72x   traces=1 loopOps=5 jit=25.0%
+  JIT native -O0                0.1113 s     1.71x   traces=1 loopOps=5 jit=40.0%
+  JIT native -O1                0.1050 s     1.81x   traces=1 loopOps=5 jit=40.0%
+  JIT native -O2                0.1091 s     1.74x   traces=1 loopOps=5 jit=25.0%
+b8_div_not_jitable
+  Interpreter                   0.0769 s     1.00x   traces=0 loopOps=-1 jit=0.0%
+  JIT IR-executor -O2           0.0738 s     1.04x   traces=0 loopOps=-1 jit=0.0%
+  JIT native -O0                0.0678 s     1.13x   traces=0 loopOps=-1 jit=0.0%
+  JIT native -O1                0.0668 s     1.15x   traces=0 loopOps=-1 jit=0.0%
+  JIT native -O2                0.0687 s     1.12x   traces=0 loopOps=-1 jit=0.0%
+
+| Benchmark | Interpreter | JIT IR-executor -O2 | JIT native -O0 | JIT native -O1 | JIT native -O2 |
+|---|---|---|---|---|---|
+| b1_sum_loop | 0.281 s (1x) | 0.373 s (0.75x) | 0.0108 s (26x) | 0.0128 s (22x) | 0.0109 s (26x) |
+| b2_loop_invariant | 0.533 s (1x) | 0.255 s (2.1x) | 0.0211 s (25x) | 0.0212 s (25x) | 0.00712 s (75x) |
+| b3_nested_loops | 0.105 s (1x) | 0.131 s (0.8x) | 0.00589 s (18x) | 0.00503 s (21x) | 0.00636 s (16x) |
+| b4_fibonacci_mod | 0.35 s (1x) | 0.577 s (0.61x) | 0.0186 s (19x) | 0.0241 s (15x) | 0.0258 s (14x) |
+| b5_polynomial | 0.522 s (1x) | 0.51 s (1x) | 0.0235 s (22x) | 0.0224 s (23x) | 0.0208 s (25x) |
+| b6_bounds_checked | 0.521 s (1x) | 0.321 s (1.6x) | 0.0181 s (29x) | 0.0138 s (38x) | 0.0136 s (38x) |
+| b7_branchy | 0.19 s (1x) | 0.264 s (0.72x) | 0.111 s (1.7x) | 0.105 s (1.8x) | 0.109 s (1.7x) |
+| b8_div_not_jitable | 0.0769 s (1x) | 0.0738 s (1x) | 0.0678 s (1.1x) | 0.0668 s (1.2x) | 0.0687 s (1.1x) |
+
+CSV written to results/bench_x86_64.csv
+All configurations produced identical output.

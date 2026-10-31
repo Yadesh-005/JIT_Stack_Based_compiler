@@ -1,0 +1,5 @@
+; Verifier error: numeric jump target outside the program.
+      LOAD_CONST R0, 0
+      PRINT_REG R1
+      
+      HALT

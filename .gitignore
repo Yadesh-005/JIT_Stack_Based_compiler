@@ -1,0 +1,5 @@
+build/
+fuzz_failure_*.jbc
+demo_input.jbc
+.DS_Store
+*.o

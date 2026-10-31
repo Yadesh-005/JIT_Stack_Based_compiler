@@ -1,0 +1,5 @@
+; Verifier warnings (program still runs, --strict rejects it).
+      ADD_INT    R0, R5, R1   ; R5 and R1 read before being written
+      JUMP       skip
+      LOAD_CONST R3, 1        ; unreachable
+skip: PRINT_REG  R0

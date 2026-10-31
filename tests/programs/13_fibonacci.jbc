@@ -1,0 +1,14 @@
+; Iterative Fibonacci with MOVs (loop-carried values through copies).
+; fib(30) = 832040
+      LOAD_CONST R0, 0        ; a
+      LOAD_CONST R1, 1        ; b
+      LOAD_CONST R2, 0        ; i
+      LOAD_CONST R3, 1
+      LOAD_CONST R4, 30       ; n
+loop: ADD_INT    R5, R0, R1
+      MOV        R0, R1
+      MOV        R1, R5
+      ADD_INT    R2, R2, R3
+      JUMP_IF_LT R2, R4, loop
+      PRINT_REG  R0
+      HALT

@@ -1,0 +1,6 @@
+; Non-terminating program: stopped by the step limit (exit code 4) in the
+; interpreter AND inside compiled code (fuel check at the loop header).
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+loop: ADD_INT    R0, R0, R1
+      JUMP       loop

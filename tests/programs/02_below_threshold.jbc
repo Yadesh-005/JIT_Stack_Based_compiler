@@ -1,0 +1,9 @@
+; Review 2 case 2 (BELOW-THRESHOLD): only 2 taken back-edges < HOT_THRESHOLD (3).
+; Expected: no profiler/recorder activity at all.
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 3
+loop: ADD_INT    R0, R0, R1
+      PRINT_REG  R0
+      JUMP_IF_LT R0, R2, loop
+      HALT

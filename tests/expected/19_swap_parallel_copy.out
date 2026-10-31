@@ -1,0 +1,4 @@
+Register R0 = 5
+Register R1 = 3
+status: HALTED
+regs: 5 3 11 1 11 0 0 3 0 0 0 0 0 0 0 0

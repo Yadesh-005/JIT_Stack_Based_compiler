@@ -1,0 +1,20 @@
+; B5: Horner evaluation of 3x^3 + 5x^2 - 7x + 11 for x < 20,000,000, accumulated
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 20000000
+      LOAD_CONST R3, 3
+      LOAD_CONST R4, 5
+      LOAD_CONST R5, -7
+      LOAD_CONST R6, 11
+      LOAD_CONST R8, 0
+loop: MUL_INT    R7, R3, R0
+      ADD_INT    R7, R7, R4
+      MUL_INT    R7, R7, R0
+      ADD_INT    R7, R7, R5
+      MUL_INT    R7, R7, R0
+      ADD_INT    R7, R7, R6
+      ADD_INT    R8, R8, R7
+      ADD_INT    R0, R0, R1
+      JUMP_IF_LT R0, R2, loop
+      PRINT_REG  R8
+      HALT

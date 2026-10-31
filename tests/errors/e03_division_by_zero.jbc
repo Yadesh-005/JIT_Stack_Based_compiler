@@ -1,0 +1,8 @@
+; Runtime error: division by zero inside a loop (exit code 3).
+      LOAD_CONST R0, 5
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 0
+loop: SUB_INT    R0, R0, R1
+      DIV_INT    R3, R1, R0       ; R0 reaches 0 on the 5th iteration
+      JUMP_IF_LT R2, R0, loop
+      HALT

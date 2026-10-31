@@ -1,0 +1,19 @@
+; B2: loop-invariant expression recomputed every iteration (LICM showcase)
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 20000000
+      LOAD_CONST R3, 7
+      LOAD_CONST R4, 6
+      LOAD_CONST R5, 0
+      LOAD_CONST R9, 11
+loop: MUL_INT    R6, R3, R4      ; invariant
+      ADD_INT    R6, R6, R9      ; invariant
+      MUL_INT    R7, R6, R6      ; invariant
+      SUB_INT    R7, R7, R3      ; invariant
+      LOAD_CONST R8, 3           ; invariant
+      MUL_INT    R8, R7, R8      ; invariant
+      ADD_INT    R5, R5, R8
+      ADD_INT    R0, R0, R1
+      JUMP_IF_LT R0, R2, loop
+      PRINT_REG  R5
+      HALT

@@ -1,0 +1,3 @@
+Register R3 = 325
+status: HALTED
+regs: 0 1 0 325 0 0 0 0 0 0 0 0 0 0 0 0

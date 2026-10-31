@@ -1,0 +1,17 @@
+; Nested loops: the inner loop is traced; the outer loop's recording aborts
+; when it meets the inner back-edge and is blacklisted after 2 attempts.
+; total = sum_{i<20} sum_{j<30} (i + j) = 14400
+       LOAD_CONST R0, 0      ; i
+       LOAD_CONST R1, 1
+       LOAD_CONST R2, 20     ; outer bound
+       LOAD_CONST R3, 30     ; inner bound
+       LOAD_CONST R5, 0      ; total
+outer: LOAD_CONST R4, 0      ; j
+inner: ADD_INT    R5, R5, R0
+       ADD_INT    R5, R5, R4
+       ADD_INT    R4, R4, R1
+       JUMP_IF_LT R4, R3, inner
+       ADD_INT    R0, R0, R1
+       JUMP_IF_LT R0, R2, outer
+       PRINT_REG  R5
+       HALT

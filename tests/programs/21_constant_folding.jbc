@@ -1,0 +1,16 @@
+; Constants re-materialised inside the loop are folded:
+; 10 + 32 = 42, x - x = 0, acc + 0 = acc.  acc = 50 * 42 = 2100
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 50
+      LOAD_CONST R10, 0
+loop: LOAD_CONST R6, 10
+      LOAD_CONST R7, 32
+      ADD_INT    R8, R6, R7
+      SUB_INT    R9, R8, R8
+      ADD_INT    R10, R10, R8
+      ADD_INT    R10, R10, R9
+      ADD_INT    R0, R0, R1
+      JUMP_IF_LT R0, R2, loop
+      PRINT_REG  R10
+      HALT

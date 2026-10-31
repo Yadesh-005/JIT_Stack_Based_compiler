@@ -1,0 +1,10 @@
+; B1: tight counting loop -- sum of i for i < 30,000,000 (mod 2^32)
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 30000000
+      LOAD_CONST R3, 0
+loop: ADD_INT    R3, R3, R0
+      ADD_INT    R0, R0, R1
+      JUMP_IF_LT R0, R2, loop
+      PRINT_REG  R3
+      HALT

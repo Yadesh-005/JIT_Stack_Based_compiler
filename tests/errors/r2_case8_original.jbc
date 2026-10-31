@@ -1,0 +1,10 @@
+; Review 2 test case 8 exactly as submitted: R0 is never incremented, so
+; JUMP_IF_LT R0, R2 is always taken and the program never terminates.
+; Review 3 VM: stopped safely by the step limit.
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      UNKNOWN_OP
+      LOAD_CONST R2, 2
+      JUMP_IF_LT R0, R2, 3
+      PRINT_REG  R0
+      HALT

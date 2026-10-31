@@ -1,0 +1,3 @@
+Register R10 = 2100
+status: HALTED
+regs: 50 1 50 0 0 0 10 32 42 0 2100 0 0 0 0 0

@@ -1,0 +1,20 @@
+; 32-bit two's-complement wrap-around must be identical in the interpreter,
+; the constant folder and both native backends.
+      LOAD_CONST R0, 2147483600
+      LOAD_CONST R1, 7
+      LOAD_CONST R2, 0
+      LOAD_CONST R3, 1
+      LOAD_CONST R4, 20
+      LOAD_CONST R5, 1
+loop: ADD_INT    R0, R0, R1     ; passes INT32_MAX
+      MUL_INT    R5, R5, R1     ; 7^k overflows
+      SUB_INT    R6, R2, R0
+      ADD_INT    R2, R2, R3
+      JUMP_IF_LT R2, R4, loop
+      PRINT_REG  R0
+      PRINT_REG  R5
+      PRINT_REG  R6
+      LOAD_CONST R7, 0x7FFFFFFF
+      ADD_INT    R7, R7, R3
+      PRINT_REG  R7               ; -2147483648
+      HALT

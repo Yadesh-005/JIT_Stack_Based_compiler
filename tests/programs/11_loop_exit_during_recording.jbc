@@ -1,0 +1,16 @@
+; Regression for a Review 2 recorder defect: loop A becomes hot on its last
+; back-edge, so it exits while recording. The old recorder kept recording
+; into loop B and loop B was never traced. Expected now: A's recording is
+; aborted cleanly and loop B (line 7) is traced and compiled.
+       LOAD_CONST R0, 0
+       LOAD_CONST R1, 1
+       LOAD_CONST R2, 4
+loopA: ADD_INT    R0, R0, R1
+       JUMP_IF_LT R0, R2, loopA
+       LOAD_CONST R4, 0
+       LOAD_CONST R6, 10
+loopB: ADD_INT    R4, R4, R1
+       JUMP_IF_LT R4, R6, loopB
+       PRINT_REG  R0
+       PRINT_REG  R4
+       HALT

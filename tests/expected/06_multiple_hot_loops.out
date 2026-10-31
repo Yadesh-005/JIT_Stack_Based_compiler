@@ -1,0 +1,22 @@
+Register R0 = 1
+Register R0 = 2
+Register R0 = 3
+Register R0 = 4
+Register R0 = 5
+Register R0 = 6
+Register R0 = 7
+Register R0 = 8
+Register R0 = 9
+Register R0 = 10
+Register R4 = 1
+Register R4 = 2
+Register R4 = 3
+Register R4 = 4
+Register R4 = 5
+Register R4 = 6
+Register R4 = 7
+Register R4 = 8
+Register R4 = 9
+Register R4 = 10
+status: HALTED
+regs: 10 1 10 0 10 1 10 0 0 0 0 0 0 0 0 0

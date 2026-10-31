@@ -1,0 +1,20 @@
+; Long-running loop whose exit is a side guard in the *middle* of the body,
+; after several registers were modified: the snapshot must restore all of
+; them exactly. Loop stops when R0 reaches 77 (checked before R3/R4 update).
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 77
+      LOAD_CONST R3, 0
+      LOAD_CONST R4, 0
+      LOAD_CONST R6, 1000
+loop: ADD_INT    R0, R0, R1
+      MUL_INT    R5, R0, R0
+      JUMP_IF_EQ R0, R2, out
+      ADD_INT    R3, R3, R5
+      SUB_INT    R4, R4, R0
+      JUMP_IF_LT R0, R6, loop
+out:  PRINT_REG  R0
+      PRINT_REG  R3
+      PRINT_REG  R4
+      PRINT_REG  R5
+      HALT

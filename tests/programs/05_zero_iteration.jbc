@@ -1,0 +1,6 @@
+; Review 2 case 5 (ZERO-ITERATION): loop condition false from the start.
+      LOAD_CONST R0, 10
+      LOAD_CONST R1, 5
+      JUMP_IF_LT R0, R1, 1
+      PRINT_REG  R0
+      HALT

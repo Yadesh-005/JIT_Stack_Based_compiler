@@ -1,0 +1,38 @@
+# Test log -- x86_64, g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 2026-10-21T18:05Z
+Trace-based JIT test suite
+native backend: native x86-64 backend (self-test passed)
+
+=== 1. Assembler (front end) ===
+
+=== 2. Verifier (static analysis) ===
+
+=== 3. Review 2 regression (Instruction-vector API) ===
+
+=== 4. Recorder / profiler behaviour ===
+
+=== 5. Optimizer (SSA, folding, CSE, guard elimination, DCE, loop peeling) ===
+
+=== 6. Deoptimisation / snapshot restore ===
+
+=== 7. Golden output (interpreter reference) ===
+
+=== 8. Differential matrix (JIT vs interpreter) ===
+
+=== 9. Random-program differential fuzzing ===
+
+=== 10. Safety: step limit, runtime errors, rejected programs ===
+
+==================== SUMMARY ====================
+  ok   1. Assembler (front end): 25 passed, 0 failed
+  ok   2. Verifier (static analysis): 14 passed, 0 failed
+  ok   3. Review 2 regression (Instruction-vector API): 27 passed, 0 failed
+  ok   4. Recorder / profiler behaviour: 24 passed, 0 failed
+  ok   5. Optimizer (SSA, folding, CSE, guard elimination, DCE, loop peeling): 16 passed, 0 failed
+  ok   6. Deoptimisation / snapshot restore: 16 passed, 0 failed
+  ok   7. Golden output (interpreter reference): 24 passed, 0 failed
+  ok   8. Differential matrix (JIT vs interpreter): 24 passed, 0 failed
+  ok   9. Random-program differential fuzzing: 2 passed, 0 failed
+  ok   10. Safety: step limit, runtime errors, rejected programs: 11 passed, 0 failed
+  differential runs: 720 (matrix) + 2800 (fuzz, 2834 traces compiled)
+  TOTAL: 183 checks passed, 0 failed
+=================================================

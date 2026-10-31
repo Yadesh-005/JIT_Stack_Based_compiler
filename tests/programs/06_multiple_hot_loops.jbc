@@ -1,0 +1,15 @@
+; Review 2 case 6 (MULTI-LOOP): two independent sequential hot loops.
+; Expected: two separate traces (headers at lines 3 and 9).
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 10
+loopA: ADD_INT   R0, R0, R1
+      PRINT_REG  R0
+      JUMP_IF_LT R0, R2, loopA
+      LOAD_CONST R4, 0
+      LOAD_CONST R5, 1
+      LOAD_CONST R6, 10
+loopB: ADD_INT   R4, R4, R5
+      PRINT_REG  R4
+      JUMP_IF_LT R4, R6, loopB
+      HALT

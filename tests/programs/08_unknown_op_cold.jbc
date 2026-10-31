@@ -1,0 +1,11 @@
+; Review 2 case 8 (UNKNOWN_OP-COLD), corrected: UNKNOWN_OP outside the loop.
+; (The Review 2 version never incremented R0 and so never terminated; see
+;  tests/errors/r2_case8_original.jbc.)
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      UNKNOWN_OP
+      LOAD_CONST R2, 8
+loop: ADD_INT    R0, R0, R1
+      JUMP_IF_LT R0, R2, loop
+      PRINT_REG  R0
+      HALT

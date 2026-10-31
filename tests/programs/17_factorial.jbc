@@ -1,0 +1,10 @@
+; 12! = 479001600 (largest factorial that fits in int32)
+      LOAD_CONST R0, 1        ; result
+      LOAD_CONST R1, 1        ; k
+      LOAD_CONST R2, 1
+      LOAD_CONST R3, 13
+loop: MUL_INT    R0, R0, R1
+      ADD_INT    R1, R1, R2
+      JUMP_IF_LT R1, R3, loop
+      PRINT_REG  R0
+      HALT

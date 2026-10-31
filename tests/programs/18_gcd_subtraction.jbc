@@ -1,0 +1,12 @@
+; Euclid's GCD by repeated subtraction: data-dependent branches.
+; gcd(1071, 462) = 21
+      LOAD_CONST R0, 1071
+      LOAD_CONST R1, 462
+top:  JUMP_IF_EQ R0, R1, done
+      JUMP_IF_LT R0, R1, less
+      SUB_INT    R0, R0, R1
+      JUMP       top
+less: SUB_INT    R1, R1, R0
+      JUMP       top
+done: PRINT_REG  R0
+      HALT

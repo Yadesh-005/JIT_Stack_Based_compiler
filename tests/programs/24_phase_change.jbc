@@ -1,0 +1,19 @@
+; Phase change: the loop takes path A while i < 500 and path B afterwards.
+; The trace recorded in phase A side-exits at its first guard on every entry
+; in phase B, so phase B runs mostly in the interpreter -- correct but slow.
+; (Side traces would fix this; see Future Work.) sumA = sum(0..499) = 124750, sumB = sum(500..2999) = 4373750
+        LOAD_CONST R0, 0
+        LOAD_CONST R1, 1
+        LOAD_CONST R2, 3000
+        LOAD_CONST R3, 500
+        LOAD_CONST R4, 0
+        LOAD_CONST R5, 0
+loop:   JUMP_IF_LT R0, R3, phaseA
+        ADD_INT    R5, R5, R0
+        JUMP       next
+phaseA: ADD_INT    R4, R4, R0
+next:   ADD_INT    R0, R0, R1
+        JUMP_IF_LT R0, R2, loop
+        PRINT_REG  R4
+        PRINT_REG  R5
+        HALT

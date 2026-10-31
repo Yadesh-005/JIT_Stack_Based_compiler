@@ -1,0 +1,12 @@
+digraph S {
+  rankdir=LR; bgcolor="white"; nodesep=0.5;
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans Bold", fontsize=12, fillcolor="#dbe8f5", color="#1f4e78", penwidth=1.5, width=1.9, height=0.7];
+  edge [fontname="DejaVu Sans", fontsize=9.5, color="#404040"];
+  I [label="INTERPRETING"]; R [label="RECORDING"]; C [label="COMPILING\n(optimise + codegen)", fillcolor="#e2efda"]; X [label="EXECUTING\nNATIVE TRACE", fillcolor="#fde9d9"];
+  I -> R [label="taken back-edge\ncounter ≥ HOT_THRESHOLD"];
+  R -> C [label="back to header\n(loop closed)"];
+  R -> I [label="abort: length > 50, UNKNOWN_OP/DIV/HALT,\ninner loop, loop exit  (retry ×2, then blacklist)", style=dashed];
+  C -> I [label="patch header\nTRACE_ENTER"];
+  I -> X [label="pc == patched header"];
+  X -> I [label="guard fails / fuel exhausted:\nrestore snapshot, resume pc"];
+}

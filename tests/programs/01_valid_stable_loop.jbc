@@ -1,0 +1,9 @@
+; Review 2 case 1 (VALID / STABLE): 10-iteration counting loop.
+; Expected: hot loop detected on the 3rd back-edge, trace compiled, R0 = 1..10.
+      LOAD_CONST R0, 0        ; counter
+      LOAD_CONST R1, 1        ; increment
+      LOAD_CONST R2, 10       ; limit
+loop: ADD_INT    R0, R0, R1
+      PRINT_REG  R0
+      JUMP_IF_LT R0, R2, loop
+      HALT

@@ -1,0 +1,15 @@
+; Swapping two registers every iteration: the back-edge needs a *parallel*
+; copy of two Phi nodes (R0 <- R1, R1 <- R0). After 11 swaps R0=5, R1=3.
+      LOAD_CONST R0, 3
+      LOAD_CONST R1, 5
+      LOAD_CONST R2, 0
+      LOAD_CONST R3, 1
+      LOAD_CONST R4, 11
+loop: MOV        R7, R0
+      MOV        R0, R1
+      MOV        R1, R7
+      ADD_INT    R2, R2, R3
+      JUMP_IF_LT R2, R4, loop
+      PRINT_REG  R0
+      PRINT_REG  R1
+      HALT

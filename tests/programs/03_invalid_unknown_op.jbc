@@ -1,0 +1,11 @@
+; Review 2 case 3 (INVALID): UNKNOWN_OP inside a hot loop.
+; Expected: recorder aborts safely (twice), loop is blacklisted, interpreter
+; skips the opcode and the program still prints R0 = 1..20.
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 20
+loop: ADD_INT    R0, R0, R1
+      PRINT_REG  R0
+      UNKNOWN_OP
+      JUMP_IF_LT R0, R2, loop
+      HALT

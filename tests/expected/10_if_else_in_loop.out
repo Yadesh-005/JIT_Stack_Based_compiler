@@ -1,0 +1,4 @@
+Register R3 = 2450
+Register R4 = 50
+status: HALTED
+regs: 100 1 100 2450 50 1 0 0 0 0 0 0 0 0 0 0

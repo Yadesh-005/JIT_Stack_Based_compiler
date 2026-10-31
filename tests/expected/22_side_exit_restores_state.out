@@ -1,0 +1,6 @@
+Register R0 = 77
+Register R3 = 149226
+Register R4 = -2926
+Register R5 = 5929
+status: HALTED
+regs: 77 1 77 149226 -2926 5929 1000 0 0 0 0 0 0 0 0 0

@@ -1,0 +1,18 @@
+; Loop-invariant computation (showcase for loop peeling / LICM).
+; R6 = 7*6 + 1 = 43 and R8 = 43*3 = 129 are the same every iteration.
+; acc = 1000 * 129 = 129000
+      LOAD_CONST R0, 0        ; i
+      LOAD_CONST R1, 1        ; step
+      LOAD_CONST R2, 1000     ; n
+      LOAD_CONST R3, 7        ; a
+      LOAD_CONST R4, 6        ; b
+      LOAD_CONST R5, 0        ; acc
+loop: MUL_INT    R6, R3, R4
+      ADD_INT    R6, R6, R1
+      LOAD_CONST R7, 3
+      MUL_INT    R8, R6, R7
+      ADD_INT    R5, R5, R8
+      ADD_INT    R0, R0, R1
+      JUMP_IF_LT R0, R2, loop
+      PRINT_REG  R5
+      HALT

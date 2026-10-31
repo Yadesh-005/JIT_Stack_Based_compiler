@@ -1,0 +1,4 @@
+Register R4 = 124750
+Register R5 = 4373750
+status: HALTED
+regs: 3000 1 3000 500 124750 4373750 0 0 0 0 0 0 0 0 0 0

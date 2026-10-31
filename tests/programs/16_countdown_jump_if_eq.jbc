@@ -1,0 +1,12 @@
+; Loop closed by an unconditional backward JUMP; the exit is a JUMP_IF_EQ,
+; recorded as GuardNE. sum 25..1 = 325
+      LOAD_CONST R0, 25
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 0
+      LOAD_CONST R3, 0
+top:  JUMP_IF_EQ R0, R2, done
+      ADD_INT    R3, R3, R0
+      SUB_INT    R0, R0, R1
+      JUMP       top
+done: PRINT_REG  R3
+      HALT

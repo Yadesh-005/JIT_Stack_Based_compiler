@@ -1,0 +1,9 @@
+; Front-end error reporting: every error is reported with its line number.
+      LOAD_CONST R0, 0
+      LOAD R1, 5                  ; unknown mnemonic
+      ADD_INT R0, R1              ; wrong operand count
+      ADD_INT R0, R16, R1         ; invalid register
+      LOAD_CONST R2, 99999999999  ; does not fit in int32
+      JUMP_IF_LT R0, R1, nowhere  ; undefined label
+dup:  HALT
+dup:  HALT                        ; duplicate label

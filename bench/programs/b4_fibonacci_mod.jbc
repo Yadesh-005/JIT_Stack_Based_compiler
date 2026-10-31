@@ -1,0 +1,15 @@
+; B4: Fibonacci mod 2^20, 20,000,000 steps (loop-carried MOV chain)
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 0
+      LOAD_CONST R3, 1
+      LOAD_CONST R4, 20000000
+      LOAD_CONST R6, 0xFFFFF
+loop: ADD_INT    R5, R0, R1
+      AND_INT    R5, R5, R6
+      MOV        R0, R1
+      MOV        R1, R5
+      ADD_INT    R2, R2, R3
+      JUMP_IF_LT R2, R4, loop
+      PRINT_REG  R0
+      HALT

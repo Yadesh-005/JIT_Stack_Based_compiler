@@ -1,0 +1,29 @@
+=== CLI tests (./build/jitvm) ===
+  ok   valid program runs
+  ok   JIT events logged
+  ok   --stats reports compiled trace
+  ok   --dump-ir shows SSA + Phi
+  ok   --dump-asm shows machine code
+  ok   -vv shows deopt with restored regs
+  ok   --mode=interp runs program
+  ok   --backend=ir works
+  ok   --compare differential PASSED
+  ok   --compare on side-exit program
+  ok   --check prints disassembly
+  ok   --backend-info
+  ok   syntax errors -> exit 2
+  ok   syntax errors carry line numbers
+  ok   undefined label reported
+  ok   bad jump target -> exit 2
+  ok   division by zero -> exit 3
+  ok   infinite loop (JIT) -> exit 4
+  ok   infinite loop (interp) -> exit 4
+  ok   Review 2 case 8 caught -> exit 4
+  ok   empty program -> exit 2
+  ok   warnings still run -> exit 0
+  ok   --strict rejects warnings -> exit 2
+  ok   missing file -> exit 2
+  ok   unknown option -> exit 1
+  ok   bad numeric option -> exit 1
+  ok   JITVM_NO_NATIVE=1 forces the IR executor
+CLI tests: 27 passed, 0 failed

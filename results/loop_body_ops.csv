@@ -1,0 +1,7 @@
+program,O0,O1,O2
+12_loop_invariant,6,6,3
+21_constant_folding,6,3,3
+20_redundant_guards,5,4,4
+b2_loop_invariant,8,8,3
+b6_bounds_checked,7,5,5
+b5_polynomial,9,9,9

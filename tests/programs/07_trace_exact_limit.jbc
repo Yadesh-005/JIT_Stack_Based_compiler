@@ -1,0 +1,59 @@
+; Review 2 case 7 (TRACE-EXACT-LIMIT): exactly 50 recorded ops (1 + 48 ADD_INT + PRINT).
+; Expected: boundary accepted -- the trace completes and is compiled.
+      LOAD_CONST R0, 0
+      LOAD_CONST R1, 1
+      LOAD_CONST R2, 55
+      LOAD_CONST R3, 1
+loop: ADD_INT    R0, R0, R1
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      ADD_INT    R3, R3, R3
+      PRINT_REG  R0
+      JUMP_IF_LT R0, R2, loop
+      PRINT_REG  R3
+      HALT

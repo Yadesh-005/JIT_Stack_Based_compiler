@@ -1,0 +1,14 @@
+; B3: nested loops 3000 x 3000 (inner loop traced, re-entered 3000 times)
+       LOAD_CONST R0, 0
+       LOAD_CONST R1, 1
+       LOAD_CONST R2, 3000
+       LOAD_CONST R5, 0
+outer: LOAD_CONST R4, 0
+inner: MUL_INT    R6, R0, R4
+       ADD_INT    R5, R5, R6
+       ADD_INT    R4, R4, R1
+       JUMP_IF_LT R4, R2, inner
+       ADD_INT    R0, R0, R1
+       JUMP_IF_LT R0, R2, outer
+       PRINT_REG  R5
+       HALT
